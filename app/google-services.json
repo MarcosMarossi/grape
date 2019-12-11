@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "348336790716",
+    "firebase_url": "https://grape-project-742d8.firebaseio.com",
+    "project_id": "grape-project-742d8",
+    "storage_bucket": "grape-project-742d8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:348336790716:android:1e7ff653aefbda36b184b9",
+        "android_client_info": {
+          "package_name": "com.example.grapeproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "348336790716-gnprufofhuv4npf6e86qhd55rlnfcn0e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.grapeproject",
+            "certificate_hash": "be0fbaf3d9e6ae0566686fae2675a8b9ebbb16c0"
+          }
+        },
+        {
+          "client_id": "348336790716-8d5p6ighfko4buss8j4h5729telaqhpf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9EDsWEt6rLRN-XpUCDGvYR0wqcWeV5u0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "348336790716-8d5p6ighfko4buss8j4h5729telaqhpf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
