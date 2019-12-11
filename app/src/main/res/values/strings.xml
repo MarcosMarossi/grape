@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Grape Project</string>
 
+    <string name="label_login">Entre com sua conta</string>
+    <string name="label_register">Crie uma conta</string>
+
     <string name="main_title">e-Colheita</string>
     <string name="main_desc">Faça a gerencia da sua colheita.</string>
     <string name="main_btnRegister">Registrar</string>
