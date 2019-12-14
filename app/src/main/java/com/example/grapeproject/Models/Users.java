@@ -11,15 +11,42 @@ public class Users {
     private String password;
     private String idUser;
 
-    private Double totalExpense = 0.0;
     private Double totalProfit = 0.0;
+    private int totalBoxes = 0;
+    private int totalRedBox = 0;
+    private int totalYellowBox = 0;
+    private int totalPlasticBox = 0;
 
-    public Double getTotalExpense() {
-        return totalExpense;
+    public int getTotalRedBox() {
+        return totalRedBox;
     }
 
-    public void setTotalExpense(Double totalExpense) {
-        this.totalExpense = totalExpense;
+    public void setTotalRedBox(int totalRedBox) {
+        this.totalRedBox = totalRedBox;
+    }
+
+    public int getTotalYellowBox() {
+        return totalYellowBox;
+    }
+
+    public void setTotalYellowBox(int totalYellowBox) {
+        this.totalYellowBox = totalYellowBox;
+    }
+
+    public int getTotalPlasticBox() {
+        return totalPlasticBox;
+    }
+
+    public void setTotalPlasticBox(int totalPlasticBox) {
+        this.totalPlasticBox = totalPlasticBox;
+    }
+
+    public int getTotalBoxes() {
+        return totalBoxes;
+    }
+
+    public void setTotalBoxes(int totalBoxes) {
+        this.totalBoxes = totalBoxes;
     }
 
     public Double getTotalProfit() {

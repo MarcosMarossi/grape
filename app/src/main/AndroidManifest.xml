@@ -6,19 +6,28 @@
 
     <application
         android:allowBackup="true"
+        android:finishOnTaskLaunch="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".HarvestActivity"></activity>
+        <activity
+            android:name=".Panel.ProfitActivity"
+            android:label="Adicionar quantidade"
+            android:parentActivityName=".Panel.StatusActivity" />
+        <activity
+            android:name=".Panel.StatusActivity"
+            android:label="@string/app_name" />
         <activity
             android:name=".RegisterActivity"
             android:label="@string/label_register"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".LoginActivity"
             android:label="@string/label_login"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
