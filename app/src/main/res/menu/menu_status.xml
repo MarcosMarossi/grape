@@ -3,15 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/itemColheita"
+        android:id="@+id/itemCalculator"
+        android:orderInCategory="100"
+        android:title="Calculadora"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/itemHarverst"
         android:orderInCategory="100"
         android:title="Encerrar colheita"
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/itemSair"
+        android:id="@+id/itemClose"
         android:orderInCategory="100"
         android:title="Sair"
         app:showAsAction="never" />
+
+
 
 </menu>

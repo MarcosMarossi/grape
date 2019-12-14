@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.grapeproject.Adapter.AdapterValues;
+import com.example.grapeproject.CalculatorActivity;
 import com.example.grapeproject.Help.Base64;
 import com.example.grapeproject.Help.SettingsDB;
 import com.example.grapeproject.MainActivity;
@@ -258,10 +259,13 @@ public class StatusActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-            case R.id.itemColheita:
-                Toast.makeText(this, "Colheita encerrada!", Toast.LENGTH_SHORT).show();
+            case R.id.itemHarverst:
+                Toast.makeText(this, "Encerrada!", Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.itemSair:
+            case R.id.itemCalculator:
+                startActivity(new Intent(getApplicationContext(), CalculatorActivity.class));
+                break;
+            case R.id.itemClose:
                 auth.signOut();
                 startActivity( new Intent( this, MainActivity.class ) );
                 finish();
