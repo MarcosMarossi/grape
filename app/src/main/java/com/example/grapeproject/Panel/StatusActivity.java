@@ -64,7 +64,7 @@ public class StatusActivity extends AppCompatActivity {
         calendario = findViewById(R.id.calendarView);
         calendario.state().edit()
                 .setMaximumDate(CalendarDay.from(2019,10,1))
-                .setMaximumDate( CalendarDay.from(2020,2,1))
+                .setMaximumDate( CalendarDay.from(2026,2,1))
                 .commit();
 
         CharSequence meses[] = {"Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"};
@@ -98,18 +98,14 @@ public class StatusActivity extends AppCompatActivity {
         recyclerView.setLayoutManager( layoutManager );
         recyclerView.setHasFixedSize( true );
         recyclerView.setAdapter(adapterValues);
-
         swipe();
-
     }
 
     public void recuperarMovimentacao(){
 
         String email = auth.getCurrentUser().getEmail();
         String id = Base64.codeBase( email );
-        movimentacaoref = reference.child( "value" ).child( id ).child( mesAnoSelecionado );
-
-        System.out.println( "Movimentacao = " + mesAnoSelecionado );
+        movimentacaoref = reference.child( "value" ).child( id );
 
         valEventListValue = movimentacaoref.addValueEventListener( new ValueEventListener() {
             @Override
@@ -118,7 +114,6 @@ public class StatusActivity extends AppCompatActivity {
                 values.clear();
                 for(DataSnapshot dados: dataSnapshot.getChildren()){
                     Values value = dados.getValue( Values.class);
-                    //System.out.println( movimentacao.getCategoria());
                     value.setKey( dados.getKey() );
                     values.add(value);
                 }
@@ -131,7 +126,6 @@ public class StatusActivity extends AppCompatActivity {
             }
         } );
     }
-
 
     public void recuperarResumo(){
 
@@ -196,8 +190,8 @@ public class StatusActivity extends AppCompatActivity {
     public void excluirMovimento(final RecyclerView.ViewHolder viewHolder){
 
         AlertDialog.Builder alert = new AlertDialog.Builder( this );
-        alert.setTitle( "Exlcuir movimentação" );
-        alert.setMessage( "Tem certeza que deseja exlcuir a movimentação?" );
+        alert.setTitle( "Exlcuir pedido" );
+        alert.setMessage( "Tem certeza que deseja exlcuir o pedido realizado?" );
         alert.setCancelable( false );
 
         alert.setPositiveButton( "Confirmar", new DialogInterface.OnClickListener() {
@@ -259,16 +253,32 @@ public class StatusActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-            case R.id.itemHarverst:
-                Toast.makeText(this, "Encerrada!", Toast.LENGTH_SHORT).show();
-                break;
             case R.id.itemCalculator:
                 startActivity(new Intent(getApplicationContext(), CalculatorActivity.class));
                 break;
             case R.id.itemClose:
-                auth.signOut();
-                startActivity( new Intent( this, MainActivity.class ) );
-                finish();
+
+                AlertDialog.Builder alert = new AlertDialog.Builder( this );
+                alert.setTitle( "Encerrar" );
+                alert.setMessage( "Tem certeza que deseja encerrar a sua sessao?" );
+                alert.setCancelable( false );
+
+                alert.setPositiveButton( "Confirmar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        auth.signOut();
+                        startActivity( new Intent( getApplicationContext(), MainActivity.class ) );
+                        finish();
+                    }
+                } );
+                alert.setNegativeButton( "Cancelar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText( getApplicationContext(), "Encerramento cancelado.", Toast.LENGTH_SHORT ).show();
+                    }
+                } );
+                AlertDialog alertDialog = alert.create();
+                alertDialog.show();
                 break;
         }
         return super.onOptionsItemSelected( item );

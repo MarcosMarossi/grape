@@ -9,12 +9,6 @@
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/itemHarverst"
-        android:orderInCategory="100"
-        android:title="Encerrar colheita"
-        app:showAsAction="never" />
-
-    <item
         android:id="@+id/itemClose"
         android:orderInCategory="100"
         android:title="Sair"

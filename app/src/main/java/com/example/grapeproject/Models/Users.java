@@ -1,5 +1,6 @@
 package com.example.grapeproject.Models;
 
+import com.example.grapeproject.Help.Custom;
 import com.example.grapeproject.Help.SettingsDB;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Exclude;
@@ -10,7 +11,6 @@ public class Users {
     private String email;
     private String password;
     private String idUser;
-
     private Double totalProfit = 0.0;
     private int totalBoxes = 0;
     private int totalRedBox = 0;
@@ -21,7 +21,7 @@ public class Users {
         return totalRedBox;
     }
 
-    public void setTotalRedBox(int totalRedBox) {
+        public void setTotalRedBox(int totalRedBox) {
         this.totalRedBox = totalRedBox;
     }
 
@@ -64,7 +64,7 @@ public class Users {
 
         DatabaseReference firebase = SettingsDB.getDataBaseReference();
         firebase.child( "users" )
-                .child( this.idUser)
+                .child( this.idUser )
                 .setValue( this );
     }
 

@@ -9,6 +9,21 @@
     <string name="main_btnRegister">Registrar</string>
     <string name="main_btnLogin">Entrar</string>
 
+
+    <string name="login_email">E-mail</string>
+    <string name="login_password">Senha</string>
+    <string name="login_btnLogin">Entrar</string>
+
+    <string name="profit_formatdate">Ex: 01/01/2020</string>
+    <string name="profit_box">Ex: 200 Caixas</string>
+    <string name="profit_price">Ex: R$ 40.00</string>
+
+
+    <string name="register_name">Nome</string>
+    <string name="register_email">E-mail</string>
+    <string name="register_password">Senha</string>
+    <string name="register_btnRegister">Cadastrar</string>
+
     <string-array name="type">
         <item>Selecione o tipo de caixa</item>
         <item>Amarela</item>
@@ -16,6 +31,7 @@
         <item>Plastica</item>
         <item>Outros</item>
     </string-array>
+
 
     <string-array name="custumer">
         <item>Selecione o comprador</item>
@@ -26,4 +42,23 @@
         <item>Demarchi</item>
         <item>Global</item>
     </string-array>
+
+    <string-array name="year">
+        <item>Selecione o ano da colheita</item>
+        <item>2019</item>
+        <item>2020</item>
+        <item>2021</item>
+        <item>2022</item>
+        <item>2023</item>
+        <item>2024</item>
+        <item>2025</item>
+        <item>2026</item>
+    </string-array>
+
+    <string-array name="semester">
+        <item>Selecione o semestre</item>
+        <item>01</item>
+        <item>02</item>
+    </string-array>
+
 </resources>
