@@ -61,13 +61,13 @@ public class RegisterActivity extends AppCompatActivity {
 
 
                         } else{
-                            Toast.makeText( getApplicationContext(), "Por favor, digite a senha.", Toast.LENGTH_SHORT ).show();
+                            Toast.makeText( getApplicationContext(), R.string.register_password_isEmpty , Toast.LENGTH_SHORT ).show();
                         }
                     } else{
-                        Toast.makeText( getApplicationContext(), "Por favor, digite o email.", Toast.LENGTH_SHORT ).show();
+                        Toast.makeText( getApplicationContext(), R.string.register_email_isEmpty , Toast.LENGTH_SHORT ).show();
                     }
                 } else{
-                    Toast.makeText( getApplicationContext(), "Por favor, digite o nome.", Toast.LENGTH_SHORT ).show();
+                    Toast.makeText( getApplicationContext(), R.string.register_name_isEmpty, Toast.LENGTH_SHORT ).show();
                 }
             }
         } );

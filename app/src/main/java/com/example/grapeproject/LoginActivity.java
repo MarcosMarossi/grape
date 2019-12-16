@@ -52,10 +52,10 @@ public class LoginActivity extends AppCompatActivity {
                         validarEntrada();
 
                     } else{
-                        Toast.makeText( getApplicationContext(), "Por favor, digite a senha.", Toast.LENGTH_SHORT ).show();
+                        Toast.makeText( getApplicationContext(), R.string.login_password_isEmpty , Toast.LENGTH_SHORT ).show();
                     }
                 } else{
-                    Toast.makeText( getApplicationContext(), "Por favor, digite o email.", Toast.LENGTH_SHORT ).show();
+                    Toast.makeText( getApplicationContext(), R.string.login_email_isEmpty, Toast.LENGTH_SHORT ).show();
                 }
             }
         });

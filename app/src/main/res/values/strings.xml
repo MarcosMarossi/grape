@@ -9,20 +9,44 @@
     <string name="main_btnRegister">Registrar</string>
     <string name="main_btnLogin">Entrar</string>
 
-
     <string name="login_email">E-mail</string>
     <string name="login_password">Senha</string>
     <string name="login_btnLogin">Entrar</string>
+    <string name="login_password_isEmpty">Por favor, digite a senha.</string>
+    <string name="login_email_isEmpty">Por favor, digite o E-mail.</string>
 
     <string name="profit_formatdate">Ex: 01/01/2020</string>
     <string name="profit_box">Ex: 200 Caixas</string>
     <string name="profit_price">Ex: R$ 40.00</string>
+    <string name="profit_moviment_sucess">Pedido feito com sucesso!</string>
+    <string name="profit_moviment_error">Pedido apresentou falhas.</string>
+    <string name="profit_validation_quantity">Você não colocou nenhuma quantidade.</string>
+    <string name="profit_validation_date">Você não colocou nenhuma data.</string>
+    <string name="profit_validation_price">Você não colocou nenhum preço.</string>
+    <string name="profit_validation_type">Você não selecionou nenhum tipo.</string>
+    <string name="profit_validation_custumer">Você não selecionou nenhum cliente.</string>
 
+    <string name="status_hello">Olá, </string>
+    <string name="status_total">Total: R$ </string>
+    <string name="status_avg">Média: R$ </string>
+    <string name="status_boxes">Caixas: </string>
+    <string name="status_delete">Excluir pedido</string>
+    <string name="status_delete_message">Tem certeza que deseja exlcuir o pedido realizado?</string>
+    <string name="status_delete_confirm">Confirmar</string>
+    <string name="status_delete_cancel">Cancelar</string>
+    <string name="status_delete_cancel_confirm">Exclusão cancelada.</string>
+    <string name="status_finish_title">Encerrar sessão</string>
+    <string name="status_finish_message">Tem certeza que deseja encerrar a sua sessão?</string>
+    <string name="status_finish_cancel">Encerramento cancelado.</string>
 
     <string name="register_name">Nome</string>
     <string name="register_email">E-mail</string>
     <string name="register_password">Senha</string>
     <string name="register_btnRegister">Cadastrar</string>
+    <string name="register_password_isEmpty">Por favor, digite a senha.</string>
+    <string name="register_email_isEmpty">Por favor, digite o E-mail.</string>
+    <string name="register_name_isEmpty">Por favor, digite o seu nome completo.</string>
+
 
     <string-array name="type">
         <item>Selecione o tipo de caixa</item>
@@ -31,7 +55,6 @@
         <item>Plastica</item>
         <item>Outros</item>
     </string-array>
-
 
     <string-array name="custumer">
         <item>Selecione o comprador</item>

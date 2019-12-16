@@ -148,10 +148,10 @@ public class StatusActivity extends AppCompatActivity {
                 String valueProfit = decimalFormat.format( totalProfit );
                 String valueAvg = decimalFormat.format( average );
 
-                txtUser.setText( "Olá, " + users.getName()+".");
-                txtProfit.setText("Total: R$ "+ valueProfit);
-                txtAverage.setText("Media: R$ "+ valueAvg);
-                txtQuantity.setText("Caixas: "+ totalQuantity);
+                txtUser.setText(R.string.status_hello + users.getName()+".");
+                txtProfit.setText(R.string.status_total + valueProfit);
+                txtAverage.setText(R.string.status_avg + valueAvg);
+                txtQuantity.setText(R.string.status_boxes + totalQuantity);
             }
 
             @Override
@@ -190,11 +190,11 @@ public class StatusActivity extends AppCompatActivity {
     public void excluirMovimento(final RecyclerView.ViewHolder viewHolder){
 
         AlertDialog.Builder alert = new AlertDialog.Builder( this );
-        alert.setTitle( "Exlcuir pedido" );
-        alert.setMessage( "Tem certeza que deseja exlcuir o pedido realizado?" );
+        alert.setTitle( R.string.status_delete );
+        alert.setMessage( R.string.status_delete_message);
         alert.setCancelable( false );
 
-        alert.setPositiveButton( "Confirmar", new DialogInterface.OnClickListener() {
+        alert.setPositiveButton( R.string.status_delete_confirm , new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
@@ -212,10 +212,10 @@ public class StatusActivity extends AppCompatActivity {
             }
         } );
 
-        alert.setNegativeButton( "Cancelar", new DialogInterface.OnClickListener() {
+        alert.setNegativeButton( R.string.status_delete_cancel , new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText( getApplicationContext(), "Exclusão cancelada", Toast.LENGTH_SHORT ).show();
+                Toast.makeText( getApplicationContext(), R.string.status_delete_cancel_confirm, Toast.LENGTH_SHORT ).show();
                 adapterValues.notifyDataSetChanged();
             }
         } );
@@ -259,11 +259,11 @@ public class StatusActivity extends AppCompatActivity {
             case R.id.itemClose:
 
                 AlertDialog.Builder alert = new AlertDialog.Builder( this );
-                alert.setTitle( "Encerrar" );
-                alert.setMessage( "Tem certeza que deseja encerrar a sua sessao?" );
+                alert.setTitle( R.string.status_finish_title );
+                alert.setMessage( R.string.status_finish_message );
                 alert.setCancelable( false );
 
-                alert.setPositiveButton( "Confirmar", new DialogInterface.OnClickListener() {
+                alert.setPositiveButton( R.string.status_delete_confirm, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         auth.signOut();
@@ -271,10 +271,10 @@ public class StatusActivity extends AppCompatActivity {
                         finish();
                     }
                 } );
-                alert.setNegativeButton( "Cancelar", new DialogInterface.OnClickListener() {
+                alert.setNegativeButton( R.string.status_delete_cancel, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText( getApplicationContext(), "Encerramento cancelado.", Toast.LENGTH_SHORT ).show();
+                        Toast.makeText( getApplicationContext(), R.string.status_finish_cancel, Toast.LENGTH_SHORT ).show();
                     }
                 } );
                 AlertDialog alertDialog = alert.create();

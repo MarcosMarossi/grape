@@ -103,11 +103,11 @@ public class ProfitActivity extends AppCompatActivity {
 
             value.salvar(data);
 
-            Toast.makeText( this, "Movimentação criada com sucesso", Toast.LENGTH_SHORT ).show();
+            Toast.makeText( this, R.string.profit_moviment_sucess , Toast.LENGTH_SHORT ).show();
             finish();
 
         } else {
-            Toast.makeText( this, "Movimentação não criada!", Toast.LENGTH_SHORT ).show();
+            Toast.makeText( this, R.string.profit_moviment_error , Toast.LENGTH_SHORT ).show();
         }
     }
 
@@ -115,23 +115,38 @@ public class ProfitActivity extends AppCompatActivity {
 
         String sValor = etValue.getText().toString();
         String sData = etData.getText().toString();
-        String sCategoria = etQuantity.getText().toString();
+        String sQuantity = etQuantity.getText().toString();
+        String sType = spType.getSelectedItem().toString();
+        String sCustumer = spCustumer.getSelectedItem().toString();
 
         if(!sValor.isEmpty()){
             if(!sData.isEmpty()){
-                if(!sCategoria.isEmpty()){
+                if(!sQuantity.isEmpty()){
+                    if(!sType.equals("Selecione o tipo de caixa")){
+                        if(!sCustumer.equals("Selecione o comprador")){
+
+                        }
+                        else {
+                            Toast.makeText( this, R.string.profit_validation_custumer , Toast.LENGTH_SHORT ).show();
+                            return false;
+                        }
+
+                    } else {
+                        Toast.makeText( this, R.string.profit_validation_type , Toast.LENGTH_SHORT ).show();
+                        return false;
+                    }
 
                 } else {
-                    Toast.makeText( this, "Você não categorizou o lucro!", Toast.LENGTH_SHORT ).show();
+                    Toast.makeText( this, R.string.profit_validation_quantity , Toast.LENGTH_SHORT ).show();
                     return false;
                 }
 
             } else {
-                Toast.makeText( this, "Você não colocou nenhuma data.", Toast.LENGTH_SHORT ).show();
+                Toast.makeText( this, R.string.profit_validation_date , Toast.LENGTH_SHORT ).show();
                 return false;
             }
         } else {
-            Toast.makeText( this, "Você não colocou nenhum valor.", Toast.LENGTH_SHORT ).show();
+            Toast.makeText( this, R.string.profit_validation_price , Toast.LENGTH_SHORT ).show();
             return false;
         }
 
