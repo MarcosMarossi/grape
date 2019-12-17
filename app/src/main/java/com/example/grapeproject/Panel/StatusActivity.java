@@ -105,7 +105,7 @@ public class StatusActivity extends AppCompatActivity {
 
         String email = auth.getCurrentUser().getEmail();
         String id = Base64.codeBase( email );
-        movimentacaoref = reference.child( "value" ).child( id );
+        movimentacaoref = reference.child( "value" ).child( id ).child(mesAnoSelecionado);
 
         valEventListValue = movimentacaoref.addValueEventListener( new ValueEventListener() {
             @Override
@@ -148,10 +148,10 @@ public class StatusActivity extends AppCompatActivity {
                 String valueProfit = decimalFormat.format( totalProfit );
                 String valueAvg = decimalFormat.format( average );
 
-                txtUser.setText(R.string.status_hello + users.getName()+".");
-                txtProfit.setText(R.string.status_total + valueProfit);
-                txtAverage.setText(R.string.status_avg + valueAvg);
-                txtQuantity.setText(R.string.status_boxes + totalQuantity);
+                txtUser.setText("Olá, " + users.getName()+".");
+                txtProfit.setText("Total: R$ " + valueProfit);
+                txtAverage.setText("Média: R$ " + valueAvg);
+                txtQuantity.setText("Total de Caixas: " + totalQuantity);
             }
 
             @Override
@@ -204,7 +204,7 @@ public class StatusActivity extends AppCompatActivity {
 
                 String email = auth.getCurrentUser().getEmail();
                 String id = Base64.codeBase( email );
-                movimentacaoref = reference.child( "value" ).child( id ).child( mesAnoSelecionado );
+                movimentacaoref = reference.child( "value" ).child( id ).child(mesAnoSelecionado);
 
                 movimentacaoref.child( value.getKey() ).removeValue();
                 adapterValues.notifyItemRemoved(pos);
@@ -256,8 +256,10 @@ public class StatusActivity extends AppCompatActivity {
             case R.id.itemCalculator:
                 startActivity(new Intent(getApplicationContext(), CalculatorActivity.class));
                 break;
+            case R.id.itemAnalysis:
+                startActivity(new Intent(getApplicationContext(), DataActivity.class));
+                break;
             case R.id.itemClose:
-
                 AlertDialog.Builder alert = new AlertDialog.Builder( this );
                 alert.setTitle( R.string.status_finish_title );
                 alert.setMessage( R.string.status_finish_message );

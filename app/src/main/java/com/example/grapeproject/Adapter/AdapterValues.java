@@ -35,17 +35,18 @@ public class AdapterValues extends RecyclerView.Adapter<AdapterValues.MyViewHold
 
         Values value = movimentacoes.get(position);
 
-        holder.titulo.setText("Comprador: " + value.getCustumer());
-        holder.valor.setText(value.getType());
-        holder.categoria.setText("Quantidade: " + Integer.toString(value.getQuantity()));
-        holder.data.setText(value.getDate());
-        holder.value.setText("Valor: RS "  + value.getValue());
+        holder.title.setText("Cliente: " + value.getCustumer());
+        holder.type.setText(value.getType());
+        holder.quantity.setText("Quantidade: " + Integer.toString(value.getQuantity()));
+        holder.date.setText(value.getDate());
+        holder.value.setText("Parcial: RS "  + value.getValue());
+        holder.price.setText("Preço: RS "  + value.getPrice());
 
         if (value.getType().equals("Amarela")) {
-            holder.valor.setTextColor(context.getResources().getColor(R.color.yellow));
+            holder.type.setTextColor(context.getResources().getColor(R.color.yellow));
         }
-        if (value.getType().equals("Vermelha")) {
-            holder.valor.setTextColor(context.getResources().getColor(R.color.red));
+       if (value.getType().equals("Vermelha")) {
+            holder.type.setTextColor(context.getResources().getColor(R.color.red));
         }
     }
 
@@ -57,16 +58,17 @@ public class AdapterValues extends RecyclerView.Adapter<AdapterValues.MyViewHold
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView titulo, valor, categoria, data, value;
+        TextView title, type, quantity, date, value, price;
 
         public MyViewHolder(View itemView) {
             super(itemView);
 
-            titulo = itemView.findViewById( R.id.textAdapterTitulo);
-            valor = itemView.findViewById(R.id.textAdapterValor);
-            categoria = itemView.findViewById(R.id.textAdapterCategoria);
-            data = itemView.findViewById(R.id.txtAdapterDate);
-            value = itemView.findViewById(R.id.textAdapterValue);
+            title = itemView.findViewById( R.id.txtAdapterTitle);
+            type = itemView.findViewById(R.id.txtAdapterType);
+            quantity = itemView.findViewById(R.id.txtAdapterQuantity);
+            date = itemView.findViewById(R.id.txtAdapterDate);
+            value = itemView.findViewById(R.id.txtAdapterValue);
+            price = itemView.findViewById(R.id.txtAdapterPrice);
         }
 
     }

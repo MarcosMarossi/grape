@@ -12,12 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity
+            android:name=".Panel.DataActivity"
+            android:label="Estatísticas Gerais"
+            android:parentActivityName=".Panel.StatusActivity"/>
         <activity
             android:name=".CalculatorActivity"
             android:label="Calculadora"
-            android:parentActivityName=".Panel.StatusActivity"/>
-
+            android:parentActivityName=".Panel.StatusActivity" />
         <activity
             android:name=".Panel.ProfitActivity"
             android:label="Adicionar quantidade"

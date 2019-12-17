@@ -9,6 +9,12 @@
         app:showAsAction="never" />
 
     <item
+        android:id="@+id/itemAnalysis"
+        android:orderInCategory="100"
+        android:title="Estatísticas"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/itemClose"
         android:orderInCategory="100"
         android:title="Sair"

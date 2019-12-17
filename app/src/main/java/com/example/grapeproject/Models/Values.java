@@ -14,7 +14,6 @@ public class Values {
     private double value;
     private String type;
     private String custumer;
-    private double kg;
     private String key;
 
 
@@ -35,14 +34,6 @@ public class Values {
 
     public void setCustumer(String custumer) {
         this.custumer = custumer;
-    }
-
-    public double getKg() {
-        return kg;
-    }
-
-    public void setKg(double kg) {
-        this.kg = kg;
     }
 
     public String getDate() {
