@@ -87,15 +87,15 @@ public class ProfitActivity extends AppCompatActivity {
             updateBoxes(totalBoxes);
 
             switch (type){
-                case "Amarela":
+                case "Cx. Amarela":
                     int totalYellow = totalYellowBox + quantity;
                     updateYellowBox(totalYellow);
                     break;
-                case "Vermelha":
+                case "Cx. Vermelha":
                     int totalRed = totalRedBox + quantity;
                     updateRedBoxes(totalRed);
                     break;
-                case "Plastica":
+                case "Cx. Plástica":
                     int totalPlastic = totalPlacticBox + quantity;
                     updatePlasticBox(totalPlastic);
                     break;

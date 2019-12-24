@@ -35,9 +35,12 @@
     <string name="status_delete_confirm">Confirmar</string>
     <string name="status_delete_cancel">Cancelar</string>
     <string name="status_delete_cancel_confirm">Exclusão cancelada.</string>
-    <string name="status_finish_title">Encerrar sessão</string>
-    <string name="status_finish_message">Tem certeza que deseja encerrar a sua sessão?</string>
-    <string name="status_finish_cancel">Encerramento cancelado.</string>
+    <string name="status_finish_title">Finalizar colheita</string>
+    <string name="status_finish_message">Tem certeza que deseja começar uma nova colheita? Ao fazer isto, todos os dados referentes a atual serão zerados. Certifique-se que fez a finalização.</string>
+    <string name="status_finish_cancel">Nova colheita cancelada.</string>
+    <string name="status_close_title">Encerrar sessão</string>
+    <string name="status_close_message">Tem certeza que deseja encerrar a sua sessão?</string>
+    <string name="status_close_cancel">Encerramento cancelado.</string>
 
     <string name="register_name">Nome</string>
     <string name="register_email">E-mail</string>
@@ -50,23 +53,28 @@
 
     <string-array name="type">
         <item>Selecione o tipo de caixa</item>
-        <item>Amarela</item>
-        <item>Vermelha</item>
-        <item>Plastica</item>
+        <item>Cx. Amarela</item>
+        <item>Cx. Vermelha</item>
+        <item>Cx. Plástica</item>
+        <item>Finalização</item>
     </string-array>
 
     <string-array name="custumer">
         <item>Selecione o comprador</item>
-        <item>Mape Frutas</item>
-        <item>Primalta</item>
-        <item>Paulo</item>
-        <item>Oba</item>
         <item>Demarchi</item>
+        <item>Josue</item>
         <item>Global</item>
         <item>Fruta do Vale</item>
-        <item>Vieira Tannus</item>
+        <item>Loschi</item>
+        <item>Mape Frutas</item>
+        <item>Othil</item>
+        <item>Oba</item>
         <item>Paçoca</item>
         <item>Perboni</item>
+        <item>Primalta</item>
+        <item>Paulo Barbi</item>
+        <item>Vieira Tannus</item>
+        <item>Finalização</item>
     </string-array>
 
 </resources>

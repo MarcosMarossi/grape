@@ -97,6 +97,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:text="Caixas Vermelhas: "
+        android:textColor="@color/red"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -109,6 +110,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:text="Caixas Amarelas:"
+        android:textColor="@color/yellow"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -121,6 +123,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:text="Caixas Plásticas:"
+        android:textColor="@color/blue"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -158,6 +161,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/grapes" />
+        app:srcCompat="@drawable/infographic" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

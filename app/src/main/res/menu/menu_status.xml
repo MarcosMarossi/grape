@@ -15,6 +15,12 @@
         app:showAsAction="never" />
 
     <item
+        android:id="@+id/itemFinish"
+        android:orderInCategory="100"
+        android:title="e-Colheita"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/itemClose"
         android:orderInCategory="100"
         android:title="Sair"

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -42,11 +43,18 @@ public class AdapterValues extends RecyclerView.Adapter<AdapterValues.MyViewHold
         holder.value.setText("Parcial: RS "  + value.getValue());
         holder.price.setText("Preço: RS "  + value.getPrice());
 
-        if (value.getType().equals("Amarela")) {
+        if (value.getType().equals("Cx. Amarela")) {
             holder.type.setTextColor(context.getResources().getColor(R.color.yellow));
         }
-       if (value.getType().equals("Vermelha")) {
+       if (value.getType().equals("Cx. Vermelha")) {
             holder.type.setTextColor(context.getResources().getColor(R.color.red));
+        }
+
+        if (value.getType().equals("Cx. Plástica")) {
+            holder.type.setTextColor(context.getResources().getColor(R.color.blue));
+        }
+        if (value.getType().equals("Finalização")) {
+            holder.type.setTextColor(context.getResources().getColor(R.color.gren));
         }
     }
 

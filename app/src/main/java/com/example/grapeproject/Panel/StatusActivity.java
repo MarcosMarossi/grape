@@ -41,7 +41,7 @@ public class StatusActivity extends AppCompatActivity {
 
     private MaterialCalendarView calendario;
     private Double totalProfit = 0.0, average = 0.0;
-    private int totalQuantity;
+    private int totalQuantity, totalRedQuantity, totalYellowQuantity, totalPlasticQuantity;
     private Values value;
     private TextView txtUser, txtProfit, txtQuantity, txtAverage;
     private RecyclerView recyclerView;
@@ -142,6 +142,9 @@ public class StatusActivity extends AppCompatActivity {
 
                 totalProfit = users.getTotalProfit();
                 totalQuantity = users.getTotalBoxes();
+                totalYellowQuantity = users.getTotalYellowBox();
+                totalRedQuantity = users.getTotalRedBox();
+                totalPlasticQuantity = users.getTotalPlasticBox();
                 average = totalProfit / totalQuantity;
 
                 DecimalFormat decimalFormat = new DecimalFormat( "0.##" );
@@ -230,14 +233,31 @@ public class StatusActivity extends AppCompatActivity {
         String email = auth.getCurrentUser().getEmail();
         String id = Base64.codeBase( email );
         usuarioref = reference.child( "users" ).child( id );
+        Double profit = totalProfit - value.getValue();
+        int quantity =  totalQuantity - value.getQuantity();
+        usuarioref.child( "totalProfit" ).setValue( profit );
+        usuarioref.child( "totalBoxes" ).setValue( quantity );
 
-        if(!value.getType().equals( "" )){
-            Double profit = totalProfit - value.getValue();
-            int quantity =  totalQuantity - value.getQuantity();
-            usuarioref.child( "totalProfit" ).setValue( profit );
-            usuarioref.child( "totalBoxes" ).setValue( quantity );
+        if(value.getType().equals( "Cx. Amarela" )) {
+            int yellow =  totalYellowQuantity - value.getQuantity();
+            usuarioref.child( "totalYellowBox" ).setValue( yellow );
         }
 
+        if(value.getType().equals( "Cx. Vermelha" )) {
+            int red =  totalRedQuantity - value.getQuantity();
+            usuarioref.child( "totalRedBox" ).setValue( red );
+        }
+
+
+        if(value.getType().equals( "Cx. Plástica" )) {
+            int plastic =  totalPlasticQuantity - value.getQuantity();
+            usuarioref.child( "totalPlasticBox" ).setValue( plastic );
+        }
+
+        if(value.getType().equals( "Finalização" )) {
+            usuarioref.child( "totalProfit" ).setValue( 0.0 );
+            usuarioref.child( "totalBoxes" ).setValue( 0 );
+        }
     }
 
     public void criarLucro(View view){
@@ -259,13 +279,44 @@ public class StatusActivity extends AppCompatActivity {
             case R.id.itemAnalysis:
                 startActivity(new Intent(getApplicationContext(), DataActivity.class));
                 break;
-            case R.id.itemClose:
-                AlertDialog.Builder alert = new AlertDialog.Builder( this );
-                alert.setTitle( R.string.status_finish_title );
-                alert.setMessage( R.string.status_finish_message );
-                alert.setCancelable( false );
+            case R.id.itemFinish:
 
-                alert.setPositiveButton( R.string.status_delete_confirm, new DialogInterface.OnClickListener() {
+                AlertDialog.Builder itemFinish = new AlertDialog.Builder( this );
+                itemFinish.setTitle( R.string.status_finish_title );
+                itemFinish.setMessage( R.string.status_finish_message );
+                itemFinish.setCancelable( false );
+
+                itemFinish.setPositiveButton( R.string.status_delete_confirm, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String email = auth.getCurrentUser().getEmail();
+                        String id = Base64.codeBase( email );
+                        usuarioref = reference.child( "users" ).child( id );
+                        usuarioref.child( "totalProfit" ).setValue( 0.0 );
+                        usuarioref.child( "totalBoxes" ).setValue( 0 );
+                        usuarioref.child( "totalPlasticBox" ).setValue( 0 );
+                        usuarioref.child( "totalRedBox" ).setValue( 0 );
+                        usuarioref.child( "totalYellowBox" ).setValue( 0 );
+                    }
+                } );
+                itemFinish.setNegativeButton( R.string.status_delete_cancel, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText( getApplicationContext(), R.string.status_finish_cancel, Toast.LENGTH_SHORT ).show();
+                    }
+                } );
+                AlertDialog finishDialog = itemFinish.create();
+                finishDialog.show();
+
+                break;
+            case R.id.itemClose:
+
+                AlertDialog.Builder itemClose = new AlertDialog.Builder( this );
+                itemClose.setTitle( R.string.status_close_title );
+                itemClose.setMessage( R.string.status_close_message );
+                itemClose.setCancelable( false );
+
+                itemClose.setPositiveButton( R.string.status_delete_confirm, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         auth.signOut();
@@ -273,14 +324,14 @@ public class StatusActivity extends AppCompatActivity {
                         finish();
                     }
                 } );
-                alert.setNegativeButton( R.string.status_delete_cancel, new DialogInterface.OnClickListener() {
+                itemClose.setNegativeButton( R.string.status_delete_cancel, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText( getApplicationContext(), R.string.status_finish_cancel, Toast.LENGTH_SHORT ).show();
+                        Toast.makeText( getApplicationContext(), R.string.status_close_cancel, Toast.LENGTH_SHORT ).show();
                     }
                 } );
-                AlertDialog alertDialog = alert.create();
-                alertDialog.show();
+                AlertDialog closeDialog = itemClose.create();
+                closeDialog.show();
                 break;
         }
         return super.onOptionsItemSelected( item );
