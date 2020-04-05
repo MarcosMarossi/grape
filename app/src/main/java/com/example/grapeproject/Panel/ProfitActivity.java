@@ -61,50 +61,56 @@ public class ProfitActivity extends AppCompatActivity {
     public void addReceita(View v){
 
         if(validar()){
-            value = new Values();
 
-            String data = etData.getText().toString().trim().substring(0, 10);
+            try {
+                value = new Values();
 
-            Double price = Double.parseDouble( etValue.getText().toString().trim() );
-            int quantity = Integer.parseInt( etQuantity.getText().toString().trim() );
+                String data = etData.getText().toString().trim().substring(0, 10);
 
-            type = spType.getSelectedItem().toString();
-            custumer = spCustumer.getSelectedItem().toString();
+                Double price = Double.parseDouble(etValue.getText().toString().trim());
+                int quantity = Integer.parseInt(etQuantity.getText().toString().trim());
 
-            value.setDate( data );
-            value.setPrice( price );
-            value.setQuantity( quantity );
-            value.setCustumer( custumer );
-            value.setType( type );
+                type = spType.getSelectedItem().toString();
+                custumer = spCustumer.getSelectedItem().toString();
 
-            Double dailyRevenue = price * quantity;
-            value.setValue(dailyRevenue);
+                value.setDate(data);
+                value.setPrice(price);
+                value.setQuantity(quantity);
+                value.setCustumer(custumer);
+                value.setType(type);
 
-            Double currentRevenue = totalProfit + (price * quantity);
-            int totalBoxes = totalBox + quantity;
+                Double dailyRevenue = price * quantity;
+                value.setValue(dailyRevenue);
 
-            updateProfit( currentRevenue );
-            updateBoxes(totalBoxes);
+                Double currentRevenue = totalProfit + (price * quantity);
+                int totalBoxes = totalBox + quantity;
 
-            switch (type){
-                case "Cx. Amarela":
-                    int totalYellow = totalYellowBox + quantity;
-                    updateYellowBox(totalYellow);
-                    break;
-                case "Cx. Vermelha":
-                    int totalRed = totalRedBox + quantity;
-                    updateRedBoxes(totalRed);
-                    break;
-                case "Cx. Plástica":
-                    int totalPlastic = totalPlacticBox + quantity;
-                    updatePlasticBox(totalPlastic);
-                    break;
+                updateProfit(currentRevenue);
+                updateBoxes(totalBoxes);
+
+                switch (type) {
+                    case "Cx. Amarela":
+                        int totalYellow = totalYellowBox + quantity;
+                        updateYellowBox(totalYellow);
+                        break;
+                    case "Cx. Vermelha":
+                        int totalRed = totalRedBox + quantity;
+                        updateRedBoxes(totalRed);
+                        break;
+                    case "Cx. Plástica":
+                        int totalPlastic = totalPlacticBox + quantity;
+                        updatePlasticBox(totalPlastic);
+                        break;
+                }
+
+                value.salvar(data);
+
+                Toast.makeText(this, R.string.profit_moviment_sucess, Toast.LENGTH_SHORT).show();
+                finish();
+
+            } catch (Exception e){
+                Toast.makeText(this, "Por favor, verifique os dados novamente. Erro: " + e.getMessage(), Toast.LENGTH_SHORT).show();
             }
-
-            value.salvar(data);
-
-            Toast.makeText( this, R.string.profit_moviment_sucess , Toast.LENGTH_SHORT ).show();
-            finish();
 
         } else {
             Toast.makeText( this, R.string.profit_moviment_error , Toast.LENGTH_SHORT ).show();

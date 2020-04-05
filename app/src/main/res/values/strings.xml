@@ -12,8 +12,7 @@
     <string name="login_email">E-mail</string>
     <string name="login_password">Senha</string>
     <string name="login_btnLogin">Entrar</string>
-    <string name="login_password_isEmpty">Por favor, digite a senha.</string>
-    <string name="login_email_isEmpty">Por favor, digite o E-mail.</string>
+    <string name="login_isEmpty">Verifique se digitou o e-mail ou senha.</string>
 
     <string name="profit_formatdate">Ex: 01/01/2020</string>
     <string name="profit_box">Ex: 200 Caixas</string>
