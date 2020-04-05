@@ -40,8 +40,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String email = etEmail.getText().toString();
-                String senha = etPassword.getText().toString();
+                String email = etEmail.getText().toString().trim();
+                String senha = etPassword.getText().toString().trim();
 
                 if(!email.isEmpty()){
                     if(!senha.isEmpty()){

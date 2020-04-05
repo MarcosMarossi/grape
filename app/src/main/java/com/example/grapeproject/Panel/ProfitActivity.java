@@ -63,10 +63,10 @@ public class ProfitActivity extends AppCompatActivity {
         if(validar()){
             value = new Values();
 
-            String data = etData.getText().toString();
+            String data = etData.getText().toString().trim().substring(0, 10);
 
-            Double price = Double.parseDouble( etValue.getText().toString() );
-            int quantity = Integer.parseInt( etQuantity.getText().toString() );
+            Double price = Double.parseDouble( etValue.getText().toString().trim() );
+            int quantity = Integer.parseInt( etQuantity.getText().toString().trim() );
 
             type = spType.getSelectedItem().toString();
             custumer = spCustumer.getSelectedItem().toString();
@@ -77,13 +77,13 @@ public class ProfitActivity extends AppCompatActivity {
             value.setCustumer( custumer );
             value.setType( type );
 
-            Double receitaDiaria = price * quantity;
-            value.setValue(receitaDiaria);
+            Double dailyRevenue = price * quantity;
+            value.setValue(dailyRevenue);
 
-            Double receitaAtual = totalProfit + (price * quantity);
+            Double currentRevenue = totalProfit + (price * quantity);
             int totalBoxes = totalBox + quantity;
 
-            updateProfit( receitaAtual );
+            updateProfit( currentRevenue );
             updateBoxes(totalBoxes);
 
             switch (type){
@@ -119,40 +119,15 @@ public class ProfitActivity extends AppCompatActivity {
         String sType = spType.getSelectedItem().toString();
         String sCustumer = spCustumer.getSelectedItem().toString();
 
-        if(!sValor.isEmpty()){
-            if(!sData.isEmpty()){
-                if(!sQuantity.isEmpty()){
-                    if(!sType.equals("Selecione o tipo de caixa")){
-                        if(!sCustumer.equals("Selecione o comprador")){
-
-                        }
-                        else {
-                            Toast.makeText( this, R.string.profit_validation_custumer , Toast.LENGTH_SHORT ).show();
-                            return false;
-                        }
-
-                    } else {
-                        Toast.makeText( this, R.string.profit_validation_type , Toast.LENGTH_SHORT ).show();
-                        return false;
-                    }
-
-                } else {
-                    Toast.makeText( this, R.string.profit_validation_quantity , Toast.LENGTH_SHORT ).show();
-                    return false;
-                }
-
-            } else {
-                Toast.makeText( this, R.string.profit_validation_date , Toast.LENGTH_SHORT ).show();
-                return false;
-            }
+        if(!sValor.isEmpty() && !sData.isEmpty() && !sQuantity.isEmpty()
+                && !sType.contains("Selecione") && !sCustumer.contains("Selecione")){
         } else {
-            Toast.makeText( this, R.string.profit_validation_price , Toast.LENGTH_SHORT ).show();
+            Toast.makeText( this, R.string.profit_validation , Toast.LENGTH_SHORT ).show();
             return false;
         }
 
         return true;
     }
-
 
     public void recuperarReceitaTotal(){
 

@@ -20,11 +20,7 @@
     <string name="profit_price">Ex: R$ 40.00</string>
     <string name="profit_moviment_sucess">Pedido feito com sucesso!</string>
     <string name="profit_moviment_error">Pedido apresentou falhas.</string>
-    <string name="profit_validation_quantity">Você não colocou nenhuma quantidade.</string>
-    <string name="profit_validation_date">Você não colocou nenhuma data.</string>
-    <string name="profit_validation_price">Você não colocou nenhum preço.</string>
-    <string name="profit_validation_type">Você não selecionou nenhum tipo.</string>
-    <string name="profit_validation_custumer">Você não selecionou nenhum cliente.</string>
+    <string name="profit_validation">Faltou preencher algum item!</string>
 
     <string name="status_hello">Olá, </string>
     <string name="status_total">Total: R$ </string>
@@ -66,14 +62,13 @@
         <item>Global</item>
         <item>Fruta do Vale</item>
         <item>Loschi</item>
+        <item>Renato Scoco</item>
         <item>Mape Frutas</item>
         <item>Othil</item>
         <item>Oba</item>
-        <item>Paçoca</item>
         <item>Perboni</item>
         <item>Primalta</item>
         <item>Paulo Barbi</item>
-        <item>Vieira Tannus</item>
         <item>Finalização</item>
     </string-array>
 

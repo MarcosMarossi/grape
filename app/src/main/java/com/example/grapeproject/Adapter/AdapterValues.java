@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.grapeproject.Models.Values;
 import com.example.grapeproject.R;
 
+import java.util.Collections;
 import java.util.List;
 
 public class AdapterValues extends RecyclerView.Adapter<AdapterValues.MyViewHolder> {
@@ -43,18 +44,20 @@ public class AdapterValues extends RecyclerView.Adapter<AdapterValues.MyViewHold
         holder.value.setText("Parcial: RS "  + value.getValue());
         holder.price.setText("Preço: RS "  + value.getPrice());
 
-        if (value.getType().equals("Cx. Amarela")) {
-            holder.type.setTextColor(context.getResources().getColor(R.color.yellow));
-        }
-       if (value.getType().equals("Cx. Vermelha")) {
-            holder.type.setTextColor(context.getResources().getColor(R.color.red));
-        }
+        switch (value.getType()){
+            case "Cx. Amarela":
+                holder.type.setTextColor(context.getResources().getColor(R.color.yellow));
+                break;
+            case "Cx. Vermelha":
+                holder.type.setTextColor(context.getResources().getColor(R.color.red));
+                break;
+            case "Cx. Plástica":
+                holder.type.setTextColor(context.getResources().getColor(R.color.blue));
+                break;
 
-        if (value.getType().equals("Cx. Plástica")) {
-            holder.type.setTextColor(context.getResources().getColor(R.color.blue));
-        }
-        if (value.getType().equals("Finalização")) {
-            holder.type.setTextColor(context.getResources().getColor(R.color.gren));
+            case "Finalização":
+                holder.type.setTextColor(context.getResources().getColor(R.color.gren));
+                break;
         }
     }
 

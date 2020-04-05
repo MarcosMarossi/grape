@@ -35,6 +35,7 @@ import com.prolificinteractive.materialcalendarview.OnMonthChangedListener;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class StatusActivity extends AppCompatActivity {
@@ -110,13 +111,13 @@ public class StatusActivity extends AppCompatActivity {
         valEventListValue = movimentacaoref.addValueEventListener( new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-
                 values.clear();
                 for(DataSnapshot dados: dataSnapshot.getChildren()){
                     Values value = dados.getValue( Values.class);
                     value.setKey( dados.getKey() );
                     values.add(value);
                 }
+                Collections.sort(values);
                 adapterValues.notifyDataSetChanged();
             }
 
@@ -138,7 +139,6 @@ public class StatusActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 Users users = dataSnapshot.getValue( Users.class );
-
 
                 totalProfit = users.getTotalProfit();
                 totalQuantity = users.getTotalBoxes();
@@ -335,6 +335,11 @@ public class StatusActivity extends AppCompatActivity {
                 break;
         }
         return super.onOptionsItemSelected( item );
+    }
+
+    @Override
+    public void onBackPressed() {
+        this.moveTaskToBack(true);
     }
 
     @Override
